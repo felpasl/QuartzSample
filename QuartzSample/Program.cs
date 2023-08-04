@@ -34,7 +34,8 @@ static void ConfigureServices(IServiceCollection services)
         configure.UsePersistentStore(persistence => {
             persistence.UseNewtonsoftJsonSerializer();
             persistence.UsePostgres("Server=db;Port=5432;Database=postgres;User Id=postgres;Password=postgres;");  
-            persistence.SetProperty("quartz.jobStore.tablePrefix", "quartz.qrtz_");        
+            persistence.SetProperty("quartz.jobStore.tablePrefix", "quartz.qrtz_");       
+            persistence.UseProperties = true;
         });
         
         configure.SchedulerId = "QuartzSample";
