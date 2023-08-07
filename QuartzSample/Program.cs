@@ -70,4 +70,6 @@ static void ConfigureContainer(ContainerBuilder builder)
     // when building the host or this won't be called.
     builder.RegisterInstance<ILogger>(Log.Logger);
 
+    builder.RegisterType<UseCase>().As<IUseCase>();
+
 }
